@@ -13,16 +13,17 @@ import java.util.List;
  * @author Patrick
  */
 public class Collection2Html
-    {
+{
 
     public static String recipeList2HtmlLink(List<Recipe> recipes)
-      {
-        String out = "";
+    {
+        String out = "<table><tr><th>Recipe name</th><th>Description</th></tr>";
         for (Recipe recipe : recipes)
-          {
-            out += " <a href=Controller?origin=showrecipe&recipe="+recipe.getName()+">"+recipe.getName()+"</a><br>";
-          }
+        {
+            out += "<tr><td> <a href=Controller?origin=showrecipe&recipe=" + recipe.getName() + ">" + recipe.getName() + "</a></td><td>" + recipe.getTodo() + "</td></tr><br>";
+        }
+        out += "</table>";
         return out;
-      }
-
     }
+
+}

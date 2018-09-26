@@ -9,8 +9,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
     </head>
+    <header>
+        <ul>
+            <li><a class="active" href="addrecipe.jsp">Add Recipe</a></li>
+            <li><a href="/Recipe/Controller?origin=getrecipes">All Recipes</a></li>
+        </ul>
+    </header>
     <body>
         <h1>Hello World, this is addrecipe!</h1>
 

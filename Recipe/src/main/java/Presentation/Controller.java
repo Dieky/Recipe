@@ -57,7 +57,6 @@ public class Controller extends HttpServlet
                     break;
                 case "getrecipes":
                     List<Recipe> recipes = dm.getAllRecipes();
-                    Collections.sort(recipes);
                     HttpSession ses = request.getSession();
                     ses.setAttribute("recipes", recipes);
                     request.getRequestDispatcher("showallrecipes.jsp").forward(request, response);

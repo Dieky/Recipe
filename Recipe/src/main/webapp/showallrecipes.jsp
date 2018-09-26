@@ -15,18 +15,21 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
-        <title>JSP Page</title>
+        <title>All recipes</title>
     </head>
-    <body>
+    <header>
+        
         <ul>
-            <li><a class="active" href="default.asp">Home</a></li>
-            <li><a href="news.asp">News</a></li>
-            <li><a href="contact.asp">Contact</a></li>
-            <li><a href="about.asp">About</a></li>
+            <li><a href="addrecipe.jsp">Add Recipe</a></li>
+            <li><a class="active" href="/Recipe/Controller?origin=getrecipes">All Recipes</a></li>
         </ul>
-        <h1>Hello World!</h1>
+    </header>
+    <body>
+        <h1>List of all recipes</h1>
         <div id="showallrecipes">
-            <% List<Recipe> recipes = (List) session.getAttribute("recipes");%>
+            <% List<Recipe> recipes = (List) session.getAttribute("recipes");
+                Collections.sort(recipes);
+            %>
             <%
                 out.print(Collection2Html.recipeList2HtmlLink(recipes));
             %>
