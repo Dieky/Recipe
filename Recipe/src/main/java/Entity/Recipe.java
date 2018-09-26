@@ -5,11 +5,13 @@
  */
 package Entity;
 
+import java.util.Comparator;
+
 /**
  *
  * @author Patrick
  */
-public class Recipe
+public class Recipe implements Comparable<Recipe>
     {
 
     private int id, cookingtime;
@@ -73,5 +75,13 @@ public class Recipe
       {
         this.todo = todo;
       }
+
+    @Override
+    public int compareTo(Recipe o)
+      {
+        return this.getName().compareTo(o.getName());
+      }
+
+
 
     }

@@ -9,6 +9,7 @@ import DAO.DataMapper;
 import Entity.Recipe;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -43,8 +44,6 @@ public class Controller extends HttpServlet
         response.setContentType("text/html;charset=UTF-8");
         DataMapper dm = new DataMapper();
 
-//        try (PrintWriter out = response.getWriter())
-//          {
         String origin = request.getParameter("origin");
 
         if (origin != null)
@@ -58,13 +57,16 @@ public class Controller extends HttpServlet
                     break;
                 case "getrecipes":
                     List<Recipe> recipes = dm.getAllRecipes();
+                    Collections.sort(recipes);
                     HttpSession ses = request.getSession();
                     ses.setAttribute("recipes", recipes);
                     request.getRequestDispatcher("showallrecipes.jsp").forward(request, response);
                     break;
+                case "addrecipe":
+                    request.getRequestDispatcher("addrecipe.jsp").forward(request, response);
+                    break;
               }
           }
-//          }
       }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
